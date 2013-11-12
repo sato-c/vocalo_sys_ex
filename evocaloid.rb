@@ -3,7 +3,8 @@ require 'rubygems'
 require 'kconv'
 require  'pp'
 #
-mode = "1"        # 0 = おきかえ / 1 = 追加
+mode = "1"          # 0 = おきかえ / 1 = 追加
+SYS_EX_LIMIT = 127  # キャラコードが127個まで
 #
 phonetic = {
   "あ" => "a",
@@ -78,6 +79,7 @@ phonetic = {
   "ゐ" => "wi",
   "ゑ" => "we",
   "を" => "o",
+  "ん" => "n",
   "ふぁ" => "p\\a",
   "つぁ" => "tsa",
   "うぃ" => "wi",
@@ -150,17 +152,22 @@ phonetic = {
   "でょ" => "d'o",
   "びょ" => "b'o",
   "ぴょ" => "p'o",
+  " "    => " ",
+  "　"   => " ",
 }
-
+#
+line_file = "text.txt"
 line_file = ARGV[0] if ARGV[0]
-
+#
 File.open(line_file,"r") do |file|
   file.each do |line|
     hatsuon = ""
 
-    line = line.chomp.toutf8
-
     next if line =~ /^#/      # 先頭が#ならコメント
+
+    line = line.toutf8
+#    line = line.tr('ァ-ン','ぁ-ん')
+    line.chomp!
 
     buf = line.split(//)
     for i in (0...buf.size)
@@ -173,17 +180,43 @@ File.open(line_file,"r") do |file|
 
 # warn oto.tosjis
 
-      hatsuon += phonetic[oto] + " " if phonetic.key?(oto)
+      hatsuon += phonetic[oto] if phonetic.key?(oto)
     end
 
     hatsuon.rstrip!
-    print "# 発音記号 #{hatsuon}\n"
+    print "# 発音記号 #{hatsuon}\n".tosjis
 
     # SYS-EXに変換
-    print "F0 43 79 09 00 50 1#{mode} \n"
-    
-    print "00 F7 \n"
+    print "F0 43 79 09 00 50 1#{mode} \n".tosjis
+
+    buf = hatsuon.split(//)
+    sys_ex_len = 0
+
+    for i in (0...buf.size)
+      print "%02.2X " % buf[i].unpack("C")      # 1.9.x以降ならordのほうがいいみたい
+      sys_ex_len += 1
+
+      # 禁則処理
+      if sys_ex_len > SYS_EX_LIMIT - 3 && buf[i] == ' '
+        sys_ex_len = 0
+        print "\n00 F7 \n".tosjis                      # 1ブロック終わり
+        print "F0 43 79 09 00 50 1#{mode} \n".tosjis   # 次のブロック開始
+      end
+    end
+
+    print "\n00 F7 \n"
   end
   print "\n"
 end
-
+#
+# TODO:
+# 撥音「ん」「ン」のあつかい
+# １．語末ならば[N\]になります。                         →文章の最後の「すいません」とか
+# ２．後ろが母音、半母音、摩擦音がなら[N\]になります。   →あいうえおぁぃぅぇぉ 日本語で摩擦音はどの音だろう？
+# ３．後ろが両唇音(p,,b,,m,)ならば[m]になります。        →しんぶんしだとsimbunsiか
+# ４．後ろが両唇音(p’,b’,m’)ならば[m']になります。    →  "ぴ" => "p'i",とか
+# ５．後ろが軟口蓋音(k,g,N)ならば[N]になります。         →きんかんにっしょっくだとkiNka
+# ６．後ろが軟口蓋音(k',g',N')ならば[N']になります。     →きんぎょだとkiN'N'o  "ぎょ" => "N'o",
+# ７．後ろが歯茎硬口蓋音(J)ならば[J]になります。         →  "に" => "Ji",にょとか。
+# ８．それ以外ならば[n]になります。                      →たいていはn
+#
