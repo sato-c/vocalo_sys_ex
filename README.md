@@ -1,46 +1,50 @@
-eVocaloid—pƒeƒLƒXƒg¨SYS-EXƒRƒ“ƒo[ƒ^
+eVocaloidç”¨ãƒ†ã‚­ã‚¹ãƒˆâ†’SYS-EXã‚³ãƒ³ãƒãƒ¼ã‚¿
 =======
 
-‚Ü‚¾ì¬’†
+ã¾ã ä½œæˆä¸­
 
-ruby evocaloid.rb [ƒeƒLƒXƒgƒtƒ@ƒCƒ‹] 
+ruby evocaloid.rb [ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«] 
 
-ƒeƒLƒXƒg‚Í‚Ð‚ç‚ª‚È‚Å‘‚«‚Ü‚·B
+ãƒ†ã‚­ã‚¹ãƒˆã¯ã²ã‚‰ãŒãªã§æ›¸ãã¾ã™ã€‚
 
-‚ ‚¢‚¤‚¦‚¨
-‚©‚«‚­‚¯‚±
-‚³‚µ‚·‚¹‚»
-‚Ò‚å‚Ò‚å‚Ò‚å‚É‚ã‚É‚ã‚É‚ã
-‚¤‚§‚¤‚§‚¤‚§
-‚«‚¥‚«‚¥‚«‚¥‚«‚¥‚«‚¥
-‚Â‚Ÿ‚Â‚Ÿ‚Â‚Ÿ‚Â‚Ÿ
+<dl>
+<dt>ã‚ã„ã†ãˆãŠ
+<dt>ã‹ããã‘ã“
+<dt>ã•ã—ã™ã›ã
+<dt>ã´ã‚‡ã´ã‚‡ã´ã‚‡ã«ã‚…ã«ã‚…ã«ã‚…
+<dt>ã†ã‰ã†ã‰ã†ã‰
+<dt>ãã‡ãã‡ãã‡ãã‡ãã‡
+<dt>ã¤ãã¤ãã¤ãã¤ã
+</dl>
 
-‚±‚ñ‚ÈŠ´‚¶B
+ã“ã‚“ãªæ„Ÿã˜ã€‚
 
-o—Í‚Í¡‚Ì‚Æ‚±‚ë16i‚ðƒeƒLƒXƒg‚Å“f‚«o‚µ‚Ä‚Ü‚·B
-‚ ‚Æ‚ÅAmidiŽü‚è‚Ì•”•ª‡‚í‚¹‚Äo—Í‚·‚é—\’èB
+å‡ºåŠ›ã¯ä»Šã®ã¨ã“ã‚16é€²ã‚’ãƒ†ã‚­ã‚¹ãƒˆã§åãå‡ºã—ã¦ã¾ã™ã€‚
+ã‚ã¨ã§ã€midiå‘¨ã‚Šã®éƒ¨åˆ†åˆã‚ã›ã¦å‡ºåŠ›ã™ã‚‹äºˆå®šã€‚
 
-‚¢‚Ü‚Í‚±‚ñ‚ÈŠ´‚¶
+ã„ã¾ã¯ã“ã‚“ãªæ„Ÿã˜
 
-# ”­‰¹‹L† a i M e o
-F0 43 79 09 00 50 11 
-00 F7 
-# ”­‰¹‹L† ka k'i kM ke ko
-F0 43 79 09 00 50 11 
-00 F7 
-# ”­‰¹‹L† sa Si sM se so
-F0 43 79 09 00 50 11 
-00 F7 
-# ”­‰¹‹L† p'o p'o p'o JM JM JM
-F0 43 79 09 00 50 11 
-00 F7 
-# ”­‰¹‹L† wo wo wo
-F0 43 79 09 00 50 11 
-00 F7 
-# ”­‰¹‹L† k'e k'e k'e k'e k'e
-F0 43 79 09 00 50 11 
-00 F7 
-# ”­‰¹‹L† tsa tsa tsa tsa
-F0 43 79 09 00 50 11 
-00 F7 
+<dl>
+<dt> # ç™ºéŸ³è¨˜å· a i M e o
+<dt> F0 43 79 09 00 50 11 
+<dt> 00 F7 
+<dt> # ç™ºéŸ³è¨˜å· ka k'i kM ke ko
+<dt> F0 43 79 09 00 50 11 
+<dt> 00 F7 
+<dt> # ç™ºéŸ³è¨˜å· sa Si sM se so
+<dt> F0 43 79 09 00 50 11 
+<dt> 00 F7 
+<dt> # ç™ºéŸ³è¨˜å· p'o p'o p'o JM JM JM
+<dt> F0 43 79 09 00 50 11 
+<dt> 00 F7 
+<dt> # ç™ºéŸ³è¨˜å· wo wo wo
+<dt> F0 43 79 09 00 50 11 
+<dt> 00 F7 
+<dt> # ç™ºéŸ³è¨˜å· k'e k'e k'e k'e k'e
+<dt> F0 43 79 09 00 50 11 
+<dt> 00 F7 
+<dt> # ç™ºéŸ³è¨˜å· tsa tsa tsa tsa
+<dt> F0 43 79 09 00 50 11 
+<dt> 00 F7 
+</dl>
 
